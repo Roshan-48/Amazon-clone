@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
 }
 .nav-logo{
     height: 50px;
@@ -300,10 +301,6 @@ ul a:hover{
     text-decoration: underline;
 }
 
-.copyright{
-    padding-top: 5px;
-}
-
 /* Base Responsive Adjustments */
 @media (max-width: 1200px) {
     .nav-search {
@@ -340,6 +337,7 @@ ul a:hover{
       height: auto;
       padding: 10px 15px;
       justify-content: center;
+      position: relative;
     }
   
     .nav-logo,
@@ -460,4 +458,63 @@ ul a:hover{
       margin: 4px 0;
     }
   }
-  
+
+/* New styles for hamburger menu and improved navbar responsiveness */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-country,
+  .nav-cart,
+  .nav-second,
+  .nav-address,
+  .panel {
+    display: none;
+  }
+  .navbar {
+    justify-content: space-between;
+  }
+}
+
+/* Toggle menu styles */
+.navbar.active .nav-country,
+.navbar.active .nav-cart,
+.navbar.active .nav-second,
+.navbar.active .nav-address,
+.navbar.active .panel {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f1111;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.navbar.active .nav-country,
+.navbar.active .nav-cart,
+.navbar.active .nav-second,
+.navbar.active .nav-address {
+  margin: 10px 0;
+  justify-content: center;
+  align-items: center;
+}
